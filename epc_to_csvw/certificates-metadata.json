@@ -1,0 +1,6 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "tableSchema": "certificates-schema-metadata.json",
+    "url": "certificates.csv",
+    "@type": "Table"
+}

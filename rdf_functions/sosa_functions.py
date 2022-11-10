@@ -12,17 +12,18 @@ xsd='http://www.w3.org/2001/XMLSchema#'
 
 
 def create_sosa_feature_of_interest_instance(
-        feature_of_interest_uri,
-        observable_property_instance_uri=None,
+        feature_of_interest_instance_uri,
+        observable_property_instance_uris=None,
         ):
     """Creates rdf for a sosa FeatureOfInterest instance.
     
     """
     st=''
-    st+=f'<{feature_of_interest_uri}> <{rdf}type> <{sosa}FeatureOfInterest>.\n'
+    st+=f'<{feature_of_interest_instance_uri}> <{rdf}type> <{sosa}FeatureOfInterest>.\n'
     
-    if not observable_property_instance_uri is None:
-        st+=f'<{feature_of_interest_uri}> <{sosa}hasProperty> <{observable_property_instance_uri}>.\n'
+    if not observable_property_instance_uris is None:
+        for observable_property_instance_uri in observable_property_instance_uris:
+            st+=f'<{feature_of_interest_instance_uri}> <{ssn}hasProperty> <{observable_property_instance_uri}>.\n'
     
     return st
     
@@ -31,6 +32,7 @@ def create_sosa_feature_of_interest_instance(
 def create_sosa_observable_property_instance(
         observable_property_instance_uri,
         observable_property_subclass_uri=None,
+        feature_of_interest_instance_uri=None,
         ):
     """Creates rdf for a sosa ObservableProperty instance.
     
@@ -49,6 +51,9 @@ def create_sosa_observable_property_instance(
     if not observable_property_subclass_uri is None:
         st+=f'<{observable_property_instance_uri}> <{rdf}type> <{observable_property_subclass_uri}>.\n'
     
+    if not feature_of_interest_instance_uri is None:
+        st+=f'<{observable_property_instance_uri}> <{ssn}isPropertyOf> <{feature_of_interest_instance_uri}>.\n'
+        
     return st
     
 
