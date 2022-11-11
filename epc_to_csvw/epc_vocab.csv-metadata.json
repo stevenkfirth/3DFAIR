@@ -1,0 +1,45 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "@type": "Table",
+    "url": "epc_vocab.csv",
+    "tableSchema": {
+        "columns": [
+            {
+                "name": "id",
+                "suppressOutput": true,
+                "titles": "id"
+            },
+            {
+                "name": "label",
+                "titles": "label",
+                "aboutUrl": "http://purl.org/berg/epc_vocab#{id}",
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "name": "comment",
+                "titles": "comment",
+                "aboutUrl": "http://purl.org/berg/epc_vocab#{id}",
+                "propertyUrl": "rdfs:comment"
+            },
+            {
+                "name": "original_epc_datatype",
+                "titles": "original_epc_datatype",
+                "aboutUrl": "http://purl.org/berg/epc_vocab#{id}",
+                "propertyUrl": "http://purl.org/berg/epc_vocab#original_epc_datatype"
+            },
+            {
+                "name": "csvw_datatype",
+                "titles": "csvw_datatype",
+                "aboutUrl": "http://purl.org/berg/epc_vocab#{id}",
+                "propertyUrl": "http://purl.org/berg/epc_vocab#csvw_datatype"
+            },
+            {
+                "name": "type",
+                "virtual": true,
+                "aboutUrl": "http://purl.org/berg/epc_vocab#{id}",
+                "propertyUrl": "rdf:type",
+                "valueUrl": "rdf:Property"
+            }
+        ]
+    }
+}
