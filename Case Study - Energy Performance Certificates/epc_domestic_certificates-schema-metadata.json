@@ -1,4 +1,5 @@
 {
+    "$schema":"https://raw.githubusercontent.com/stevenkfirth/csvw_metadata_json_schema/main/schema_files/schema_description.schema.json",
     "@context": "http://www.w3.org/ns/csvw",
     "@type": "Schema",
     "columns": [
@@ -7,8 +8,11 @@
             "titles": "LMK_KEY",
             "rdfs:label": "LMK_KEY",
             "rdfs:comment": "Individual lodgement identifier. Guaranteed to be unique and can be used to identify a certificate in the downloads and the API.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#LMK_KEY",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 64",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#LMK_KEY",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -16,8 +20,11 @@
             "titles": "ADDRESS1",
             "rdfs:label": "ADDRESS1",
             "rdfs:comment": "First line of the address",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#ADDRESS1",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 84",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#ADDRESS1",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -25,8 +32,11 @@
             "titles": "ADDRESS2",
             "rdfs:label": "ADDRESS2",
             "rdfs:comment": "Second line of the address",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#ADDRESS2",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 100",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#ADDRESS2",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -34,8 +44,11 @@
             "titles": "ADDRESS3",
             "rdfs:label": "ADDRESS3",
             "rdfs:comment": "Third line of the address",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#ADDRESS3",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 100",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#ADDRESS3",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -43,8 +56,11 @@
             "titles": "POSTCODE",
             "rdfs:label": "POSTCODE",
             "rdfs:comment": "The postcode of the property",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#POSTCODE",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 8",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#POSTCODE",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -52,8 +68,11 @@
             "titles": "BUILDING_REFERENCE_NUMBER",
             "rdfs:label": "BUILDING_REFERENCE_NUMBER",
             "rdfs:comment": "Unique identifier for the property.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#BUILDING_REFERENCE_NUMBER",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 12",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#BUILDING_REFERENCE_NUMBER",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -61,8 +80,12 @@
             "titles": "CURRENT_ENERGY_RATING",
             "rdfs:label": "CURRENT_ENERGY_RATING",
             "rdfs:comment": "Current energy rating converted into a linear 'A to G' rating (where A is the most energy efficient and G is the least energy efficient)",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#CURRENT_ENERGY_RATING",
+            "datatype": {
+                "base": "string",
+                "format": "A|B|C|D|E|F|G|INVALID!"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 8",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#CURRENT_ENERGY_RATING",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -70,8 +93,12 @@
             "titles": "POTENTIAL_ENERGY_RATING",
             "rdfs:label": "POTENTIAL_ENERGY_RATING",
             "rdfs:comment": "Estimated potential energy rating converted into a linear 'A to G' rating (where A is the most energy efficient and G is the least energy efficient)",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#POTENTIAL_ENERGY_RATING",
+            "datatype": {
+                "base": "string",
+                "format": "A|B|C|D|E|F|G|INVALID!"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 8",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#POTENTIAL_ENERGY_RATING",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -79,26 +106,40 @@
             "titles": "CURRENT_ENERGY_EFFICIENCY",
             "rdfs:label": "CURRENT_ENERGY_EFFICIENCY",
             "rdfs:comment": "Based on cost of energy, i.e. energy required for space heating, water heating and lighting [in kWh/year] multiplied by fuel costs. (\u00a3/m\u00b2/year where cost is derived from kWh).",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#CURRENT_ENERGY_EFFICIENCY",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#CURRENT_ENERGY_EFFICIENCY",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "\u00a3/m\u00b2/year"
         },
         {
             "name": "POTENTIAL_ENERGY_EFFICIENCY",
             "titles": "POTENTIAL_ENERGY_EFFICIENCY",
             "rdfs:label": "POTENTIAL_ENERGY_EFFICIENCY",
             "rdfs:comment": "The potential energy efficiency rating of the property.",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#POTENTIAL_ENERGY_EFFICIENCY",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#POTENTIAL_ENERGY_EFFICIENCY",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "\u00a3/m\u00b2/year"
         },
         {
             "name": "PROPERTY_TYPE",
             "titles": "PROPERTY_TYPE",
             "rdfs:label": "PROPERTY_TYPE",
             "rdfs:comment": "Describes the type of property such as House, Flat, Maisonette etc. This is the type differentiator for dwellings.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#PROPERTY_TYPE",
+            "datatype": {
+                "base": "string",
+                "format": "Bungalow|Flat|House|Maisonette|Park home"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 10",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#PROPERTY_TYPE",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -106,8 +147,12 @@
             "titles": "BUILT_FORM",
             "rdfs:label": "BUILT_FORM",
             "rdfs:comment": "The building type of the Property e.g. Detached, Semi-Detached, Terrace etc. Together with the Property Type, the Build Form produces a structured description of the property",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#BUILT_FORM",
+            "datatype": {
+                "base": "string",
+                "format": "|Detached|Enclosed End-Terrace|Enclosed Mid-Terrace|End-Terrace|Mid-Terrace|NO DATA!|Semi-Detached"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 20",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#BUILT_FORM",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -115,8 +160,12 @@
             "titles": "INSPECTION_DATE",
             "rdfs:label": "INSPECTION_DATE",
             "rdfs:comment": "The date that the inspection was actually carried out by the energy assessor",
-            "datatype": "date",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#INSPECTION_DATE",
+            "datatype": {
+                "base": "date",
+                "format": "yyyy-MM-dd"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "DATE",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#INSPECTION_DATE",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -124,8 +173,11 @@
             "titles": "LOCAL_AUTHORITY",
             "rdfs:label": "LOCAL_AUTHORITY",
             "rdfs:comment": "Office for National Statistics (ONS) code. Local authority area in which the building is located.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#LOCAL_AUTHORITY",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#LOCAL_AUTHORITY",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -133,8 +185,11 @@
             "titles": "CONSTITUENCY",
             "rdfs:label": "CONSTITUENCY",
             "rdfs:comment": "Office for National Statistics (ONS) code. Parliamentary constituency in which the building is located.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#CONSTITUENCY",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#CONSTITUENCY",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -142,8 +197,11 @@
             "titles": "COUNTY",
             "rdfs:label": "COUNTY",
             "rdfs:comment": "County in which the building is located (where applicable)",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#COUNTY",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 24",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#COUNTY",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -151,8 +209,12 @@
             "titles": "LODGEMENT_DATE",
             "rdfs:label": "LODGEMENT_DATE",
             "rdfs:comment": "Date lodged on the Energy Performance of Buildings Register",
-            "datatype": "date",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#LODGEMENT_DATE",
+            "datatype": {
+                "base": "date",
+                "format": "yyyy-MM-dd"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "DATE",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#LODGEMENT_DATE",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -160,8 +222,12 @@
             "titles": "TRANSACTION_TYPE",
             "rdfs:label": "TRANSACTION_TYPE",
             "rdfs:comment": "Type of transaction that triggered EPC. For example, one of: marketed sale; non-marketed sale; new-dwelling; rental; not sale or rental; assessment for Green Deal; following Green Deal; FIT application; none of the above; RHI application; ECO assessment. Where the reason for the assessment is unknown by the energy assessor the transaction type will be recorded as 'none of the above'. Transaction types may be changed over time.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#TRANSACTION_TYPE",
+            "datatype": {
+                "base": "string",
+                "format": "ECO assessment|FiT application|NO DATA!|RHI application|Stock Condition Survey|Stock condition survey|assessment for green deal|following green deal|marketed sale|new dwelling|non marketed sale|none of the above|not recorded|not recorded - this is for backwards compatibility only and should not be used|not sale or rental|rental|rental \\(private\\)|rental \\(private\\) - this is for backwards compatibility only and should not be used|rental \\(social\\)|rental \\(social\\) - this is for backwards compatibility only and should not be used|unknown"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 82",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#TRANSACTION_TYPE",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -169,44 +235,68 @@
             "titles": "ENVIRONMENT_IMPACT_CURRENT",
             "rdfs:label": "ENVIRONMENT_IMPACT_CURRENT",
             "rdfs:comment": "The Environmental Impact Rating. A measure of the property's current impact on the environment in terms of carbon dioxide (CO\u2082) emissions. The higher the rating the lower the CO\u2082 emissions. (CO\u2082 emissions in tonnes / year)",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#ENVIRONMENT_IMPACT_CURRENT",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#ENVIRONMENT_IMPACT_CURRENT",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "CO\u2082 emissions in tonnes / year"
         },
         {
             "name": "ENVIRONMENT_IMPACT_POTENTIAL",
             "titles": "ENVIRONMENT_IMPACT_POTENTIAL",
             "rdfs:label": "ENVIRONMENT_IMPACT_POTENTIAL",
             "rdfs:comment": "The potential Environmental Impact Rating. A measure of the property's potential impact on the environment in terms of carbon dioxide (CO\u2082) emissions after improvements have been carried out. The higher the rating the lower the CO\u2082 emissions. (CO\u2082 emissions in tonnes / year)",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#ENVIRONMENT_IMPACT_POTENTIAL",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#ENVIRONMENT_IMPACT_POTENTIAL",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "CO\u2082 emissions in tonnes / year"
         },
         {
             "name": "ENERGY_CONSUMPTION_CURRENT",
             "titles": "ENERGY_CONSUMPTION_CURRENT",
             "rdfs:label": "ENERGY_CONSUMPTION_CURRENT",
             "rdfs:comment": "Current estimated total energy consumption for the property in a 12 month period (kWh/m2). Displayed on EPC as the current primary energy use per square metre of floor area.",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#ENERGY_CONSUMPTION_CURRENT",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#ENERGY_CONSUMPTION_CURRENT",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "kWh/m2"
         },
         {
             "name": "ENERGY_CONSUMPTION_POTENTIAL",
             "titles": "ENERGY_CONSUMPTION_POTENTIAL",
             "rdfs:label": "ENERGY_CONSUMPTION_POTENTIAL",
             "rdfs:comment": "Estimated potential total energy consumption for the Property in a 12 month period. Value is Kilowatt Hours per Square Metre (kWh/m\u00b2)",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#ENERGY_CONSUMPTION_POTENTIAL",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#ENERGY_CONSUMPTION_POTENTIAL",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "tonnes/year"
         },
         {
             "name": "CO2_EMISSIONS_CURRENT",
             "titles": "CO2_EMISSIONS_CURRENT",
             "rdfs:label": "CO2_EMISSIONS_CURRENT",
             "rdfs:comment": "CO\u2082 emissions per year in tonnes/year.",
-            "datatype": "decimal",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#CO2_EMISSIONS_CURRENT",
+            "datatype": {
+                "base": "decimal",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "DECIMAL",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#CO2_EMISSIONS_CURRENT",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -214,44 +304,68 @@
             "titles": "CO2_EMISS_CURR_PER_FLOOR_AREA",
             "rdfs:label": "CO2_EMISS_CURR_PER_FLOOR_AREA",
             "rdfs:comment": "CO\u2082 emissions per square metre floor area per year in kg/m\u00b2",
-            "datatype": "decimal",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#CO2_EMISS_CURR_PER_FLOOR_AREA",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "decimal",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "DECIMAL",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#CO2_EMISS_CURR_PER_FLOOR_AREA",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "kg/m\u00b2"
         },
         {
             "name": "CO2_EMISSIONS_POTENTIAL",
             "titles": "CO2_EMISSIONS_POTENTIAL",
             "rdfs:label": "CO2_EMISSIONS_POTENTIAL",
             "rdfs:comment": "Estimated value in Tonnes per Year of the total CO\u2082 emissions produced by the Property in 12 month period.",
-            "datatype": "decimal",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#CO2_EMISSIONS_POTENTIAL",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "decimal",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "DECIMAL",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#CO2_EMISSIONS_POTENTIAL",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "tonnes/year"
         },
         {
             "name": "LIGHTING_COST_CURRENT",
             "titles": "LIGHTING_COST_CURRENT",
             "rdfs:label": "LIGHTING_COST_CURRENT",
             "rdfs:comment": "GBP. Current estimated annual energy costs for lighting the property.",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#LIGHTING_COST_CURRENT",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#LIGHTING_COST_CURRENT",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "GBP"
         },
         {
             "name": "LIGHTING_COST_POTENTIAL",
             "titles": "LIGHTING_COST_POTENTIAL",
             "rdfs:label": "LIGHTING_COST_POTENTIAL",
             "rdfs:comment": "GBP. Potential estimated annual energy costs for lighting the property after improvements have been made.",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#LIGHTING_COST_POTENTIAL",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#LIGHTING_COST_POTENTIAL",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "GBP"
         },
         {
             "name": "HEATING_COST_CURRENT",
             "titles": "HEATING_COST_CURRENT",
             "rdfs:label": "HEATING_COST_CURRENT",
             "rdfs:comment": "GBP. Current estimated annual energy costs for heating the property.",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#HEATING_COST_CURRENT",
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#HEATING_COST_CURRENT",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -259,8 +373,12 @@
             "titles": "HEATING_COST_POTENTIAL",
             "rdfs:label": "HEATING_COST_POTENTIAL",
             "rdfs:comment": "GBP. Potential annual energy costs for lighting the property after improvements have been made.",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#HEATING_COST_POTENTIAL",
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#HEATING_COST_POTENTIAL",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -268,35 +386,54 @@
             "titles": "HOT_WATER_COST_CURRENT",
             "rdfs:label": "HOT_WATER_COST_CURRENT",
             "rdfs:comment": "GBP. Current estimated annual energy costs for hot water",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#HOT_WATER_COST_CURRENT",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#HOT_WATER_COST_CURRENT",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "GBP"
         },
         {
             "name": "HOT_WATER_COST_POTENTIAL",
             "titles": "HOT_WATER_COST_POTENTIAL",
             "rdfs:label": "HOT_WATER_COST_POTENTIAL",
             "rdfs:comment": "GBP. Potential estimated annual energy costs for hot water after improvements have been made.",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#HOT_WATER_COST_POTENTIAL",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#HOT_WATER_COST_POTENTIAL",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "GBP"
         },
         {
             "name": "TOTAL_FLOOR_AREA",
             "titles": "TOTAL_FLOOR_AREA",
             "rdfs:label": "TOTAL_FLOOR_AREA",
             "rdfs:comment": "The total useful floor area is the total of all enclosed spaces measured to the internal face of the external walls, i.e. the gross floor area as measured in accordance with the guidance issued from time to time by the Royal Institute of Chartered Surveyors or by a body replacing that institution. (m\u00b2)",
-            "datatype": "decimal",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#TOTAL_FLOOR_AREA",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "decimal",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "DECIMAL",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#TOTAL_FLOOR_AREA",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "m\u00b2"
         },
         {
             "name": "ENERGY_TARIFF",
             "titles": "ENERGY_TARIFF",
             "rdfs:label": "ENERGY_TARIFF",
             "rdfs:comment": "Type of electricity tariff for the property, e.g. single.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#ENERGY_TARIFF",
+            "datatype": {
+                "base": "string",
+                "format": "|24 hour|5|INVALID!|NO DATA!|Single|Unknown|dual|dual \\(24 hour\\)|off-peak 10 hour|off-peak 18 hour|off-peak 7 hour|standard tariff"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 16",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#ENERGY_TARIFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -304,8 +441,12 @@
             "titles": "MAINS_GAS_FLAG",
             "rdfs:label": "MAINS_GAS_FLAG",
             "rdfs:comment": "Whether mains gas is available. Yes means that there is a gas meter or a gas-burning appliance in the dwelling. A closed-off gas pipe does not count.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#MAINS_GAS_FLAG",
+            "datatype": {
+                "base": "string",
+                "format": "|N|Y"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 1",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#MAINS_GAS_FLAG",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -313,8 +454,12 @@
             "titles": "FLOOR_LEVEL",
             "rdfs:label": "FLOOR_LEVEL",
             "rdfs:comment": "Flats and maisonettes only. Floor level relative to the lowest level of the property (0 for ground floor). If there is a basement, the basement is level 0 and the other floors are from 1 upwards",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#FLOOR_LEVEL",
+            "datatype": {
+                "base": "string",
+                "format": "|-1|0|00|01|02|03|04|05|06|07|08|09|1|10|10th|11|11th|12|12th|13|13th|14|14th|15|15th|16|16th|17|17th|18|18th|19|19th|1st|2|20|20+|20th|21st or above|2nd|3|3rd|4th|5th|6th|7th|8th|9th|Basement|Ground|NO DATA!|NODATA!|ground floor|mid floor|top floor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 13",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#FLOOR_LEVEL",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -322,8 +467,12 @@
             "titles": "FLAT_TOP_STOREY",
             "rdfs:label": "FLAT_TOP_STOREY",
             "rdfs:comment": "Whether the flat is on the top storey",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#FLAT_TOP_STOREY",
+            "datatype": {
+                "base": "string",
+                "format": "|N|Y"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 1",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#FLAT_TOP_STOREY",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -331,8 +480,12 @@
             "titles": "FLAT_STOREY_COUNT",
             "rdfs:label": "FLAT_STOREY_COUNT",
             "rdfs:comment": "The number of storeys in the apartment block.",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#FLAT_STOREY_COUNT",
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#FLAT_STOREY_COUNT",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -340,8 +493,12 @@
             "titles": "MAIN_HEATING_CONTROLS",
             "rdfs:label": "MAIN_HEATING_CONTROLS",
             "rdfs:comment": "Type of main heating controls. Includes both main heating systems if there are two.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#MAIN_HEATING_CONTROLS",
+            "datatype": {
+                "base": "string",
+                "format": "|%%MAINHEATCONTROL%%|-1|0|1|17|2100|2101|2102|2103|2104|2105|2106|2107|2108|2109|2110|2111|2112|2201|2202|2203|2204|2205|2206|2207|2208|2301|2302|2303|2304|2305|2306|2307|2308|2309|2310|2311|2312|2401|2402|2403|2404|2501|2502|2503|2504|2505|2506|2601|2602|2603|2604|2605|2699|27|2701|2702|2703|2704|2705|2706|4"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 19",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#MAIN_HEATING_CONTROLS",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -349,17 +506,27 @@
             "titles": "MULTI_GLAZE_PROPORTION",
             "rdfs:label": "MULTI_GLAZE_PROPORTION",
             "rdfs:comment": "The estimated banded range (e.g. 0% - 10%) of the total glazed area of the Property that is multiple glazed.",
-            "datatype": "decimal",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#MULTI_GLAZE_PROPORTION",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "integer",
+                "minimum": 0,
+                "maximum": 100
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#MULTI_GLAZE_PROPORTION",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "%"
         },
         {
             "name": "GLAZED_TYPE",
             "titles": "GLAZED_TYPE",
             "rdfs:label": "GLAZED_TYPE",
             "rdfs:comment": "The type of glazing. From British Fenestration Rating Council or manufacturer declaration, one of; single; double; triple.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#GLAZED_TYPE",
+            "datatype": {
+                "base": "string",
+                "format": "|INVALID!|NO DATA!|double glazing installed before 2002|double glazing installed during or after 2002|double glazing, unknown install date|double, known data|not defined|secondary glazing|single glazing|triple glazing|triple, known data"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 45",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#GLAZED_TYPE",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -367,8 +534,12 @@
             "titles": "GLAZED_AREA",
             "rdfs:label": "GLAZED_AREA",
             "rdfs:comment": "Ranged estimate of the total glazed area of the Habitable Area.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#GLAZED_AREA",
+            "datatype": {
+                "base": "string",
+                "format": "|Less Than Typical|More Than Typical|Much Less Than Typical|Much More Than Typical|NO DATA!|Normal|Not Defined"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 22",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#GLAZED_AREA",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -376,8 +547,13 @@
             "titles": "EXTENSION_COUNT",
             "rdfs:label": "EXTENSION_COUNT",
             "rdfs:comment": "The number of extensions added to the property. Between 0 and 4.",
-            "datatype": "decimal",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#EXTENSION_COUNT",
+            "datatype": {
+                "base": "integer",
+                "minimum": 0,
+                "maximum": 4
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#EXTENSION_COUNT",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -385,8 +561,12 @@
             "titles": "NUMBER_HABITABLE_ROOMS",
             "rdfs:label": "NUMBER_HABITABLE_ROOMS",
             "rdfs:comment": "Habitable rooms include any living room, sitting room, dining room, bedroom, study and similar; and also a non-separated conservatory. A kitchen/diner having a discrete seating area (with space for a table and four chairs) also counts as a habitable room. A non-separated conservatory adds to the habitable room count if it has an internal quality door between it and the dwelling. Excluded from the room count are any room used solely as a kitchen, utility room, bathroom, cloakroom, en-suite accommodation and similar and any hallway, stairs or landing; and also any room not having a window.",
-            "datatype": "decimal",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#NUMBER_HABITABLE_ROOMS",
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#NUMBER_HABITABLE_ROOMS",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -394,8 +574,12 @@
             "titles": "NUMBER_HEATED_ROOMS",
             "rdfs:label": "NUMBER_HEATED_ROOMS",
             "rdfs:comment": "The number of heated rooms in the property if more than half of the habitable rooms are not heated.",
-            "datatype": "decimal",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#NUMBER_HEATED_ROOMS",
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#NUMBER_HEATED_ROOMS",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -403,17 +587,26 @@
             "titles": "LOW_ENERGY_LIGHTING",
             "rdfs:label": "LOW_ENERGY_LIGHTING",
             "rdfs:comment": "The percentage of low energy lighting present in the property as a percentage of the total fixed lights in the property. 0% indicates that no low-energy lighting is present.",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#LOW_ENERGY_LIGHTING",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#LOW_ENERGY_LIGHTING",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "%"
         },
         {
             "name": "NUMBER_OPEN_FIREPLACES",
             "titles": "NUMBER_OPEN_FIREPLACES",
             "rdfs:label": "NUMBER_OPEN_FIREPLACES",
             "rdfs:comment": "The number of Open Fireplaces in the Property. An Open Fireplace is a fireplace that still allows air to pass between the inside of the Property and the outside.",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#NUMBER_OPEN_FIREPLACES",
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#NUMBER_OPEN_FIREPLACES",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -421,8 +614,11 @@
             "titles": "HOTWATER_DESCRIPTION",
             "rdfs:label": "HOTWATER_DESCRIPTION",
             "rdfs:comment": "Overall description of the property feature",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#HOTWATER_DESCRIPTION",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 95",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#HOTWATER_DESCRIPTION",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -430,8 +626,12 @@
             "titles": "HOT_WATER_ENERGY_EFF",
             "rdfs:label": "HOT_WATER_ENERGY_EFF",
             "rdfs:comment": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#HOT_WATER_ENERGY_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "Average|Good|N/A|Poor|Very Good|Very Poor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#HOT_WATER_ENERGY_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -439,8 +639,12 @@
             "titles": "HOT_WATER_ENV_EFF",
             "rdfs:label": "HOT_WATER_ENV_EFF",
             "rdfs:comment": "Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#HOT_WATER_ENV_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "Average|Good|N/A|Poor|Very Good|Very Poor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#HOT_WATER_ENV_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -448,8 +652,11 @@
             "titles": "FLOOR_DESCRIPTION",
             "rdfs:label": "FLOOR_DESCRIPTION",
             "rdfs:comment": "Overall description of the property feature",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#FLOOR_DESCRIPTION",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 91",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#FLOOR_DESCRIPTION",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -457,8 +664,12 @@
             "titles": "FLOOR_ENERGY_EFF",
             "rdfs:label": "FLOOR_ENERGY_EFF",
             "rdfs:comment": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#FLOOR_ENERGY_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "Average|Good|N/A|NO DATA!|Poor|Very Good|Very Poor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#FLOOR_ENERGY_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -466,8 +677,12 @@
             "titles": "FLOOR_ENV_EFF",
             "rdfs:label": "FLOOR_ENV_EFF",
             "rdfs:comment": "Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#FLOOR_ENV_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "Average|Good|N/A|Poor|Very Good|Very Poor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#FLOOR_ENV_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -475,8 +690,11 @@
             "titles": "WINDOWS_DESCRIPTION",
             "rdfs:label": "WINDOWS_DESCRIPTION",
             "rdfs:comment": "Overall description of the property feature",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#WINDOWS_DESCRIPTION",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 54",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#WINDOWS_DESCRIPTION",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -484,8 +702,12 @@
             "titles": "WINDOWS_ENERGY_EFF",
             "rdfs:label": "WINDOWS_ENERGY_EFF",
             "rdfs:comment": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#WINDOWS_ENERGY_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "Average|Good|N/A|Poor|Very Good|Very Poor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#WINDOWS_ENERGY_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -493,8 +715,12 @@
             "titles": "WINDOWS_ENV_EFF",
             "rdfs:label": "WINDOWS_ENV_EFF",
             "rdfs:comment": "WINDOWS. Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#WINDOWS_ENV_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "Average|Good|N/A|Poor|Very Good|Very Poor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#WINDOWS_ENV_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -502,8 +728,11 @@
             "titles": "WALLS_DESCRIPTION",
             "rdfs:label": "WALLS_DESCRIPTION",
             "rdfs:comment": "Overall description of the property feature",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#WALLS_DESCRIPTION",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 121",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#WALLS_DESCRIPTION",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -511,8 +740,12 @@
             "titles": "WALLS_ENERGY_EFF",
             "rdfs:label": "WALLS_ENERGY_EFF",
             "rdfs:comment": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#WALLS_ENERGY_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "Average|Good|N/A|Poor|Very Good|Very Poor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#WALLS_ENERGY_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -520,8 +753,12 @@
             "titles": "WALLS_ENV_EFF",
             "rdfs:label": "WALLS_ENV_EFF",
             "rdfs:comment": "Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#WALLS_ENV_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "Average|Good|N/A|Poor|Very Good|Very Poor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#WALLS_ENV_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -529,8 +766,11 @@
             "titles": "SECONDHEAT_DESCRIPTION",
             "rdfs:label": "SECONDHEAT_DESCRIPTION",
             "rdfs:comment": "Overall description of the property feature",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#SECONDHEAT_DESCRIPTION",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 97",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#SECONDHEAT_DESCRIPTION",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -538,8 +778,12 @@
             "titles": "SHEATING_ENERGY_EFF",
             "rdfs:label": "SHEATING_ENERGY_EFF",
             "rdfs:comment": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#SHEATING_ENERGY_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "N/A"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 3",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#SHEATING_ENERGY_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -547,8 +791,12 @@
             "titles": "SHEATING_ENV_EFF",
             "rdfs:label": "SHEATING_ENV_EFF",
             "rdfs:comment": "Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#SHEATING_ENV_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "N/A"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 3",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#SHEATING_ENV_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -556,8 +804,11 @@
             "titles": "ROOF_DESCRIPTION",
             "rdfs:label": "ROOF_DESCRIPTION",
             "rdfs:comment": "Overall description of the property feature",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#ROOF_DESCRIPTION",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 92",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#ROOF_DESCRIPTION",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -565,8 +816,12 @@
             "titles": "ROOF_ENERGY_EFF",
             "rdfs:label": "ROOF_ENERGY_EFF",
             "rdfs:comment": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#ROOF_ENERGY_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "Average|Good|N/A|Poor|Very Good|Very Poor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#ROOF_ENERGY_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -574,8 +829,12 @@
             "titles": "ROOF_ENV_EFF",
             "rdfs:label": "ROOF_ENV_EFF",
             "rdfs:comment": "Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#ROOF_ENV_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "Average|Good|N/A|Poor|Very Good|Very Poor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#ROOF_ENV_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -583,8 +842,11 @@
             "titles": "MAINHEAT_DESCRIPTION",
             "rdfs:label": "MAINHEAT_DESCRIPTION",
             "rdfs:comment": "Overall description of the property feature",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#MAINHEAT_DESCRIPTION",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 134",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#MAINHEAT_DESCRIPTION",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -592,8 +854,12 @@
             "titles": "MAINHEAT_ENERGY_EFF",
             "rdfs:label": "MAINHEAT_ENERGY_EFF",
             "rdfs:comment": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#MAINHEAT_ENERGY_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "Average|Good|N/A|Poor|Very Good|Very Poor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#MAINHEAT_ENERGY_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -601,8 +867,12 @@
             "titles": "MAINHEAT_ENV_EFF",
             "rdfs:label": "MAINHEAT_ENV_EFF",
             "rdfs:comment": "Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#MAINHEAT_ENV_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "Average|Good|N/A|Poor|Very Good|Very Poor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#MAINHEAT_ENV_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -610,8 +880,11 @@
             "titles": "MAINHEATCONT_DESCRIPTION",
             "rdfs:label": "MAINHEATCONT_DESCRIPTION",
             "rdfs:comment": "Overall description of the property feature",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#MAINHEATCONT_DESCRIPTION",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 96",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#MAINHEATCONT_DESCRIPTION",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -619,8 +892,12 @@
             "titles": "MAINHEATC_ENERGY_EFF",
             "rdfs:label": "MAINHEATC_ENERGY_EFF",
             "rdfs:comment": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#MAINHEATC_ENERGY_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "Average|Good|N/A|Poor|Very Good|Very Poor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#MAINHEATC_ENERGY_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -628,8 +905,12 @@
             "titles": "MAINHEATC_ENV_EFF",
             "rdfs:label": "MAINHEATC_ENV_EFF",
             "rdfs:comment": "Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#MAINHEATC_ENV_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "Average|Good|N/A|Poor|Very Good|Very Poor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#MAINHEATC_ENV_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -637,8 +918,11 @@
             "titles": "LIGHTING_DESCRIPTION",
             "rdfs:label": "LIGHTING_DESCRIPTION",
             "rdfs:comment": "Overall description of property feature. Total number of fixed lighting outlets and total number of low-energy fixed lighting outlets",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#LIGHTING_DESCRIPTION",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 91",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#LIGHTING_DESCRIPTION",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -646,8 +930,12 @@
             "titles": "LIGHTING_ENERGY_EFF",
             "rdfs:label": "LIGHTING_ENERGY_EFF",
             "rdfs:comment": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#LIGHTING_ENERGY_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "|Average|Good|N/A|Poor|Very Good|Very Poor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#LIGHTING_ENERGY_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -655,8 +943,12 @@
             "titles": "LIGHTING_ENV_EFF",
             "rdfs:label": "LIGHTING_ENV_EFF",
             "rdfs:comment": "Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#LIGHTING_ENV_EFF",
+            "datatype": {
+                "base": "string",
+                "format": "Average|Good|N/A|Poor|Very Good|Very Poor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 9",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#LIGHTING_ENV_EFF",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -664,8 +956,12 @@
             "titles": "MAIN_FUEL",
             "rdfs:label": "MAIN_FUEL",
             "rdfs:comment": "The type of fuel used to power the central heating e.g. Gas, Electricity",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#MAIN_FUEL",
+            "datatype": {
+                "base": "string",
+                "format": "|B30D \\(community\\)|B30K|B30K \\(not community\\)|Community heating schemes: heat from boilers - biomass|Community heating schemes: heat from heat pump|Community heating schemes: waste heat from power stations|Electricity: electricity displaced from grid|Electricity: electricity, unspecified tariff|Gas: biogas|Gas: bottled LPG|Gas: bulk LPG|Gas: mains gas|INVALID!|LNG|LPG \\(community\\)|LPG \\(not community\\)|LPG - this is for backwards compatibility only and should not be used|LPG special condition|LPG subject to Special Condition 18|NO DATA!|Oil: heating oil|Solid fuel: dual fuel appliance \\(mineral and wood\\)|Solid fuel: house coal|Solid fuel: manufactured smokeless fuel|Solid fuel: wood chips|Solid fuel: wood logs|Solid fuel: wood pellets \\(bulk supply in bags, for main heating\\)|Solid fuel: wood pellets \\(in bags, for secondary heating\\)|To be used only when there is no heating/hot-water system|To be used only when there is no heating/hot-water system or data is from a community network|anthracite|appliances able to use mineral oil or liquid biofuel|biodiesel from any biomass source|biodiesel from used cooking oil only|biodiesel from vegetable oil only|bioethanol|biogas \\(community\\)|biogas \\(not community\\)|biogas - landfill - this is for backwards compatibility only and should not be used|biomass \\(community\\)|biomass - this is for backwards compatibility only and should not be used|bottled LPG|bulk wood pellets|coal \\(community\\)|dual fuel - mineral + wood|electricity \\(community\\)|electricity \\(not community\\)|electricity - this is for backwards compatibility only and should not be used|from heat network data \\(community\\)|heat from boilers that can use mineral oil or biodiesel \\(community\\)|heat from boilers using biodiesel from any biomass source \\(community\\)|house coal \\(not community\\)|house coal - this is for backwards compatibility only and should not be used|mains gas \\(community\\)|mains gas \\(not community\\)|mains gas - this is for backwards compatibility only and should not be used|oil \\(community\\)|oil \\(not community\\)|oil - this is for backwards compatibility only and should not be used|rapeseed oil|smokeless coal|waste combustion \\(community\\)|waste combustion - this is for backwards compatibility only and should not be used|wood chips|wood logs|wood pellets in bags for secondary heating"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 93",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#MAIN_FUEL",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -673,8 +969,12 @@
             "titles": "WIND_TURBINE_COUNT",
             "rdfs:label": "WIND_TURBINE_COUNT",
             "rdfs:comment": "Number of wind turbines; 0 if none.",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#WIND_TURBINE_COUNT",
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#WIND_TURBINE_COUNT",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -682,8 +982,12 @@
             "titles": "HEAT_LOSS_CORRIDOR",
             "rdfs:label": "HEAT_LOSS_CORRIDOR",
             "rdfs:comment": "Flats and maisonettes only. Indicates that the flat contains a corridor through which heat is lost. Heat loss corridor, one of: no corridor; heated corridor; unheated corridor",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#HEAT_LOSS_CORRIDOR",
+            "datatype": {
+                "base": "string",
+                "format": "|NO DATA!|heated corridor|no corridor|unheated corridor"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 17",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#HEAT_LOSS_CORRIDOR",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -691,35 +995,55 @@
             "titles": "UNHEATED_CORRIDOR_LENGTH",
             "rdfs:label": "UNHEATED_CORRIDOR_LENGTH",
             "rdfs:comment": "The total length of unheated corridor in the flat. Only populated if flat or maisonette contains unheated corridor. If unheated corridor, length of sheltered wall (m\u00b2).",
-            "datatype": "decimal",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#UNHEATED_CORRIDOR_LENGTH",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "decimal",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "DECIMAL",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#UNHEATED_CORRIDOR_LENGTH",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "m"
         },
         {
             "name": "FLOOR_HEIGHT",
             "titles": "FLOOR_HEIGHT",
             "rdfs:label": "FLOOR_HEIGHT",
             "rdfs:comment": "Average height of the storey in metres.",
-            "datatype": "decimal",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#FLOOR_HEIGHT",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "decimal",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "DECIMAL",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#FLOOR_HEIGHT",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "m"
         },
         {
             "name": "PHOTO_SUPPLY",
             "titles": "PHOTO_SUPPLY",
             "rdfs:label": "PHOTO_SUPPLY",
             "rdfs:comment": "Percentage of photovoltaic area as a percentage of total roof area. 0% indicates that a Photovoltaic Supply is not present in the property.",
-            "datatype": "decimal",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#PHOTO_SUPPLY",
-            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
+            "datatype": {
+                "base": "integer",
+                "minimum": 0,
+                "maximum": 100
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#PHOTO_SUPPLY",
+            "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}",
+            "https://schema.org/unitText": "%"
         },
         {
             "name": "SOLAR_WATER_HEATING_FLAG",
             "titles": "SOLAR_WATER_HEATING_FLAG",
             "rdfs:label": "SOLAR_WATER_HEATING_FLAG",
             "rdfs:comment": "Indicates whether the heating in the Property is solar powered.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#SOLAR_WATER_HEATING_FLAG",
+            "datatype": {
+                "base": "string",
+                "format": "|N|Y"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 1",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#SOLAR_WATER_HEATING_FLAG",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -727,8 +1051,12 @@
             "titles": "MECHANICAL_VENTILATION",
             "rdfs:label": "MECHANICAL_VENTILATION",
             "rdfs:comment": "Identifies the type of mechanical ventilation the property has. This is required for the RdSAP calculation.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#MECHANICAL_VENTILATION",
+            "datatype": {
+                "base": "string",
+                "format": "|NO DATA!|mechanical, extract only|mechanical, supply and extract|natural"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 30",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#MECHANICAL_VENTILATION",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -736,8 +1064,11 @@
             "titles": "ADDRESS",
             "rdfs:label": "ADDRESS",
             "rdfs:comment": "Field containing the concatenation of address1, address2 and address3. Note that post code is recorded separately.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#ADDRESS",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#ADDRESS",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -745,8 +1076,11 @@
             "titles": "LOCAL_AUTHORITY_LABEL",
             "rdfs:label": "LOCAL_AUTHORITY_LABEL",
             "rdfs:comment": "The name of the local authority area in which the building is located. This field is for additional information only and should not be relied upon: please refer to the Local Authority ONS Code.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#LOCAL_AUTHORITY_LABEL",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#LOCAL_AUTHORITY_LABEL",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -754,8 +1088,11 @@
             "titles": "CONSTITUENCY_LABEL",
             "rdfs:label": "CONSTITUENCY_LABEL",
             "rdfs:comment": "The name of the parliamentary constituency in which the building is located. This field is for additional information only and should not be relied upon: please refer to the Constituency ONS Code.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#CONSTITUENCY_LABEL",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#CONSTITUENCY_LABEL",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -763,8 +1100,11 @@
             "titles": "POSTTOWN",
             "rdfs:label": "POSTTOWN",
             "rdfs:comment": "The post town of the property",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#POSTTOWN",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 37",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#POSTTOWN",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -772,8 +1112,12 @@
             "titles": "CONSTRUCTION_AGE_BAND",
             "rdfs:label": "CONSTRUCTION_AGE_BAND",
             "rdfs:comment": "Age band when building part constructed. England & Wales only. One of: before 1900; 1900-1929; 1930-1949; 1950-1966; 1967-1975; 1976-1982; 1983-1990; 1991-1995; 1996-2002; 2003-2006; 2007-2011; 2012 onwards.",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#CONSTRUCTION_AGE_BAND",
+            "datatype": {
+                "base": "string",
+                "format": "|1700|1800|1805|1820|1825|1849|1850|1867|1876|1880|1885|1889|1890|1900|1902|1910|1915|1920|1929|1930|1935|1940|1950|1956|1960|1965|1967|1969|1970|1975|1980|1983|1985|1988|1990|1992|1995|1996|1998|2000|2001|2002|2004|2005|2006|2007|2008|2009|2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023|2024|2025|2030|2031|2033|2035|2044|2081|2121|England and Wales: 1900-1929|England and Wales: 1930-1949|England and Wales: 1950-1966|England and Wales: 1967-1975|England and Wales: 1976-1982|England and Wales: 1983-1990|England and Wales: 1991-1995|England and Wales: 1996-2002|England and Wales: 2003-2006|England and Wales: 2007 onwards|England and Wales: 2007-2011|England and Wales: 2012 onwards|England and Wales: before 1900|INVALID!|NO DATA!|Not applicable"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 31",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#CONSTRUCTION_AGE_BAND",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -781,8 +1125,12 @@
             "titles": "LODGEMENT_DATETIME",
             "rdfs:label": "LODGEMENT_DATETIME",
             "rdfs:comment": "Date and time lodged on the Energy Performance of Buildings Register.",
-            "datatype": "{'base': 'datetime', 'format': 'yyyy-MM-dd HH:mm:ss'}",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#LODGEMENT_DATETIME",
+            "datatype": {
+                "base": "datetime",
+                "format": "yyyy-MM-dd HH:mm:ss"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "DATETIME2",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#LODGEMENT_DATETIME",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -790,8 +1138,12 @@
             "titles": "TENURE",
             "rdfs:label": "TENURE",
             "rdfs:comment": "Describes the tenure type of the property. One of: Owner-occupied; Rented (social); Rented (private).",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#TENURE",
+            "datatype": {
+                "base": "string",
+                "format": "|NO DATA!|Not defined - use in the case of a new dwelling for which the intended tenure in not known. It is no|Owner-occupied|Rented \\(private\\)|Rented \\(social\\)|owner-occupied|rental \\(private\\)|rental \\(social\\)|unknown"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 100",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#TENURE",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -799,8 +1151,12 @@
             "titles": "FIXED_LIGHTING_OUTLETS_COUNT",
             "rdfs:label": "FIXED_LIGHTING_OUTLETS_COUNT",
             "rdfs:comment": "The number of fixed lighting outlets.",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#FIXED_LIGHTING_OUTLETS_COUNT",
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#FIXED_LIGHTING_OUTLETS_COUNT",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -808,8 +1164,12 @@
             "titles": "LOW_ENERGY_FIXED_LIGHT_COUNT",
             "rdfs:label": "LOW_ENERGY_FIXED_LIGHT_COUNT",
             "rdfs:comment": "The number of low-energy fixed lighting outlets.",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#LOW_ENERGY_FIXED_LIGHT_COUNT",
+            "datatype": {
+                "base": "integer",
+                "minimum": 0
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#LOW_ENERGY_FIXED_LIGHT_COUNT",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -817,8 +1177,11 @@
             "titles": "UPRN",
             "rdfs:label": "UPRN",
             "rdfs:comment": "The UPRN submitted by an assessor or alternatively from the department\u2019s address matching algorithm.",
-            "datatype": "integer",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#UPRN",
+            "datatype": {
+                "base": "integer"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "INT",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#UPRN",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         },
         {
@@ -826,8 +1189,11 @@
             "titles": "UPRN_SOURCE",
             "rdfs:label": "UPRN_SOURCE",
             "rdfs:comment": "Populated with the values \"Energy Assessor\" or \"Address Matched\" to show how the UPRN was populated",
-            "datatype": "string",
-            "propertyUrl": "http://purl.org/berg/epc_vocab#UPRN_SOURCE",
+            "datatype": {
+                "base": "string"
+            },
+            "http://purl.org/berg/epc_domestic_vocab#epc_datatype": "VARCHAR 15",
+            "propertyUrl": "http://purl.org/berg/epc_domestic_vocab#UPRN_SOURCE",
             "aboutUrl": "http://purl.org/berg/epc_data#Certificate_{LMK_KEY}"
         }
     ]

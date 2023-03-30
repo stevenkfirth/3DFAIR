@@ -1,0 +1,7 @@
+{
+    "$schema":"https://raw.githubusercontent.com/stevenkfirth/csvw_metadata_json_schema/main/schema_files/table_description.schema.json",
+    "@context": "http://www.w3.org/ns/csvw",
+    "tableSchema": "../epc_domestic_certificates-schema-metadata.json",
+    "url": "certificates.csv",
+    "@type": "Table"
+}
