@@ -1,0 +1,70 @@
+{
+    "$schema":"https://raw.githubusercontent.com/stevenkfirth/csvw_metadata_json_schema/main/schema_files/schema_description.schema.json",
+    "@context": "http://www.w3.org/ns/csvw",
+    "@type": "Schema",
+    "columns": [
+        {
+            "name": "LMK_KEY",
+            "titles": "LMK_KEY",
+            "rdfs:label": "LMK_KEY",
+            "rdfs:comment": "Individual lodgement identifier. Guaranteed to be unique and can be used to identify a certificate in the downloads and the API.",
+            "datatype": {
+                "base": "string"
+            }
+        },
+        {
+            "name": "IMPROVEMENT_ITEM",
+            "titles": "IMPROVEMENT_ITEM",
+            "rdfs:label": "IMPROVEMENT_ITEM",
+            "rdfs:comment": "Incremental integer count for each improvement item related to a certificate.",
+            "datatype": {
+                "base": "integer"
+            }
+        },
+        {
+            "name": "IMPROVEMENT_SUMMARY_TEXT",
+            "titles": "IMPROVEMENT_SUMMARY_TEXT",
+            "rdfs:label": "IMPROVEMENT_SUMMARY_TEXT",
+            "rdfs:comment": "",
+            "datatype": {
+                "base": "string"
+            }
+        },
+        {
+            "name": "IMPROVEMENT_DESCR_TEXT",
+            "titles": "IMPROVEMENT_DESCR_TEXT",
+            "rdfs:label": "IMPROVEMENT_DESCR_TEXT",
+            "rdfs:comment": "",
+            "datatype": {
+                "base": "string"
+            }
+        },
+        {
+            "name": "IMPROVEMENT_ID",
+            "titles": "IMPROVEMENT_ID",
+            "rdfs:label": "IMPROVEMENT_ID",
+            "rdfs:comment": "Individual identifier for each improvement option",
+            "datatype": {
+                "base": "integer"
+            }
+        },
+        {
+            "name": "IMPROVEMENT_ID_TEXT",
+            "titles": "IMPROVEMENT_ID_TEXT",
+            "rdfs:label": "IMPROVEMENT_ID_TEXT",
+            "rdfs:comment": "Text description for each improvement option. Relates directly to IMPROVEMENT_ID",
+            "datatype": {
+                "base": "string"
+            }
+        },
+        {
+            "name": "INDICATIVE_COST",
+            "titles": "INDICATIVE_COST",
+            "rdfs:label": "INDICATIVE_COST",
+            "rdfs:comment": "",
+            "datatype": {
+                "base": "string"
+            }
+        }
+    ]
+}
